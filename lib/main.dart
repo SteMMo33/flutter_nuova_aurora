@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:nuova_aurora/ui/sub_menu_page.dart';
 import 'package:provider/provider.dart';
 
-import 'data/menu.dart';
-import 'data/ordine_dao.dart';
 import 'data/selectedItem.dart';
 
 
@@ -33,14 +31,14 @@ class MyApp extends StatelessWidget {
       providers: [
         // TODO add changeNotifierProvider<Dao>
 
-        Provider<OrdineDao>(
+        /* Provider<OrdineDao>(
           lazy: false,
           create: (_) => OrdineDao(),
-        ),
+        ),*/
       ],
 
     child:
-    /*return*/ MaterialApp(
+    /*SM return*/ MaterialApp(
       title: 'Pizz. Nuova Aurora',
       theme: ThemeData(
         // This is the theme of your application.
@@ -72,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
   // By default, this allows you to interact with Firestore using the default Firebase App used whilst installing FlutterFire on your platform.
   // Non può essere richiamato prima della conclusione di initializeApp() !!
 
-
   @override
   Widget build(BuildContext context) {
     // The Flutter framework has been optimized to make rerunning build methods
@@ -83,6 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: [
+          IconButton(onPressed: null, icon: Icon(Icons.more_vert))
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,6 +28,15 @@ class _SubSubMenuPageState extends State<SubSubMenuPage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.selection.nome),
+        actions: [
+          Padding (
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: null,
+              child: Icon(Icons.search),
+            )
+          )
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -54,13 +65,14 @@ class _SubSubMenuPageState extends State<SubSubMenuPage> {
   /// When performing a query, Firestore returns either a QuerySnapshot or a DocumentSnapshot.
   ///
   Widget buildMenuList(SelectedItem selection) {
-    print(
-        "> subsub  selection id: '${selection.id}' - nome: '${selection.nome}'");
+    print("> subsub  selection id: '${selection.id}' - nome: '${selection.nome}'");
 
     CollectionReference menu = FirebaseFirestore.instance
         .collection('menu')
         .doc(widget.selection.id)
         .collection(selection.nome);
+
+    List<Map<String, dynamic>> listOfMaps = <Map<String, dynamic>>[];
 
     return FutureBuilder<QuerySnapshot>(
       future: menu.get(),
@@ -83,6 +95,7 @@ class _SubSubMenuPageState extends State<SubSubMenuPage> {
 
           docs.forEach((element) {
             print(element['nome']);
+            listOfMaps.add(element.data() as Map<String,dynamic>);
           });
 
           return ListView.builder(
@@ -117,7 +130,7 @@ class _SubSubMenuPageState extends State<SubSubMenuPage> {
                             alignment: Alignment.centerLeft,
                             padding: EdgeInsets.only(left: 8.0, bottom: 5.0),
                             child: Text(
-                              docs[n]['ingredienti'],
+                              listOfMaps[n].containsKey('ingredienti') ? listOfMaps[n]['ingredienti'] : "",
                               textAlign: TextAlign.left,
                               style: TextStyle(),
                             ),
