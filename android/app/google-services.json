@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "563548335074",
+    "firebase_url": "https://pizzeria-nuova-aurora.firebaseio.com",
+    "project_id": "pizzeria-nuova-aurora",
+    "storage_bucket": "pizzeria-nuova-aurora.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563548335074:android:e389a37133c343d82367bb",
+        "android_client_info": {
+          "package_name": "com.stemmo.nuova_aurora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563548335074-eeo15un461gc2ftv74ik7fd5ns88j9le.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtPZGmXQSJ1CIGId3KWhUteHGMLnaXG_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563548335074-eeo15un461gc2ftv74ik7fd5ns88j9le.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
